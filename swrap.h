@@ -37,8 +37,10 @@ swrap notes:
 //constants
 #define SWRAP_TCP 0
 #define SWRAP_UDP 1
+
 #define SWRAP_BIND 0
 #define SWRAP_CONNECT 1
+
 #define SWRAP_DEFAULT 0x00
 #define SWRAP_NOBLOCK 0x01
 #define SWRAP_NODELAY 0x02
@@ -112,6 +114,7 @@ SWDEF int swrapMultiSelect(int*, int, double);
 //includes
 #ifdef _WIN32 //windows
     #include <ws2tcpip.h>
+    #pragma comment(lib, "ws2_32.lib")
 #else //unix
     #include <sys/socket.h>
     #include <netdb.h>
